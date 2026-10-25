@@ -13,7 +13,7 @@ A no-login practice app styled like a lab notebook (cream graph paper, ink blue,
 
 ## Question ideas (same skills, new wording and substances)
 None of the test's or review sheet's substances or data sets come back. For example: no Cu/Cl/Na/S, no Ag/Ca/Mg nitrates, no LiCl/BaSO4/Al/niacin, no bismuth.
-- **Activity series**: a new "Metal X/Y/Z" reaction grid with different patterns. Students drag the metals into order, then explain the reasoning (multiple choice). They place a newly tested metal in the order, decide which mystery metal is likely a 2+ ion metal like zinc, and complete a single-replacement equation with states.
+- **Activity series**: a new "Metal X/Y/Z" reaction grid with different patterns. Students drag the metals into order, then explain the reasoning (multiple choice). They place a newly tested metal in the order, decide which mystery metal is likely a 1+ ion metal like potassium, and complete a single-replacement equation with states.
 - **Precipitates**: identify three unlabeled solutions (for example lead(II), barium and zinc nitrates) using different test solutions. Students also decide whether one test is really needed, write equations for precipitates (for example from potassium carbonate and iron(III) chloride), and work through "which reagent best tells these apart?"
 - **Particle diagrams**: drag ions, solid clusters and water molecules into Before/After boxes for new reactions (for example a silver bromide precipitate made from new starting solutions), plus showing a dissolved ionic solid vs. a dissolved covalent solid.
 - **Predicting products**: say whether a reaction is single or double replacement, type the balanced equation, and decide whether a reaction happens at all.
