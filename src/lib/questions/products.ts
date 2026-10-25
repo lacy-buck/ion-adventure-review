@@ -1,0 +1,96 @@
+import type { Question } from "./types";
+
+const TYPE = ["Single replacement", "Double replacement"];
+
+export const productQuestions: Question[] = [
+  {
+    id: "prod-1",
+    station: "products",
+    kind: "mc",
+    prompt: "Bromine is added to lithium iodide solution: `Br2 + LiI ->`. What type of reaction is this?",
+    options: TYPE,
+    answer: 0,
+    explanation: "An element (Br₂) takes the place of an element in a compound (I in LiI). That's single replacement.",
+  },
+  {
+    id: "prod-2",
+    station: "products",
+    kind: "equation",
+    prompt: "Finish and balance it, with states: bromine liquid + aqueous lithium iodide.",
+    hint: "The halogen higher on the table replaces the one below it. Iodine is a solid at room temperature.",
+    answer: "Br2(l) + 2LiI(aq) -> 2LiBr(aq) + I2(s)",
+    explanation: "Br₂ is more reactive than I₂, so it takes iodide's place: Br₂(l) + 2LiI(aq) → 2LiBr(aq) + I₂(s).",
+  },
+  {
+    id: "prod-3",
+    station: "products",
+    kind: "mc",
+    prompt: "`Sr(NO3)2 + K2CO3 ->`. What type of reaction is this?",
+    options: TYPE,
+    answer: 1,
+    explanation: "Two ionic compounds swap partners, so this is double replacement.",
+  },
+  {
+    id: "prod-4",
+    station: "products",
+    kind: "equation",
+    prompt: "Finish and balance `Sr(NO3)2 + K2CO3`, with states.",
+    answer: "Sr(NO3)2(aq) + K2CO3(aq) -> SrCO3(s) + 2KNO3(aq)",
+    explanation: "SrCO₃ is insoluble, so it's the solid. KNO₃ stays dissolved, and two of them balance the nitrate.",
+  },
+  {
+    id: "prod-5",
+    station: "products",
+    kind: "equation",
+    prompt: "Magnesium ribbon is placed in iron(II) chloride solution. Write the balanced equation with states.",
+    answer: "Mg(s) + FeCl2(aq) -> MgCl2(aq) + Fe(s)",
+    explanation: "Mg is above Fe, so it replaces Fe²⁺. Both are 2+, so all the coefficients are 1.",
+  },
+  {
+    id: "prod-6",
+    station: "products",
+    kind: "equation",
+    prompt: "Iron(III) chloride and potassium hydroxide solutions are mixed. Write the balanced equation with states.",
+    hint: "Iron(III) is Fe³⁺. How many OH⁻ does it need?",
+    answer: "FeCl3(aq) + 3KOH(aq) -> Fe(OH)3(s) + 3KCl(aq)",
+    explanation: "Fe³⁺ pairs with three OH⁻ to form insoluble Fe(OH)₃. Three K⁺ pair with the three Cl⁻.",
+  },
+  {
+    id: "prod-7",
+    station: "products",
+    kind: "equation",
+    prompt: "Zinc metal is dropped into hydrobromic acid, `HBr(aq)`. Write the balanced equation with states.",
+    hint: "Zinc is above hydrogen, so it replaces H. Hydrogen is a diatomic gas.",
+    answer: "Zn(s) + 2HBr(aq) -> ZnBr2(aq) + H2(g)",
+    explanation: "Zn replaces hydrogen, making ZnBr₂ and H₂ gas (the bubbles!). It takes two HBr to supply Br⁻ for one Zn²⁺.",
+  },
+  {
+    id: "prod-8",
+    station: "products",
+    kind: "mc",
+    prompt: "Which of these will NOT react?",
+    options: [
+      "`Ni(s) + Pb(NO3)2(aq)`",
+      "`Au(s) + FeCl3(aq)`",
+      "`Mg(s) + ZnSO4(aq)`",
+      "`Fe(s) + HBr(aq)`",
+    ],
+    answer: 1,
+    explanation: "Gold is at the very bottom of the activity series. It can't replace iron ions, so nothing happens.",
+  },
+  {
+    id: "prod-9",
+    station: "products",
+    kind: "mc",
+    prompt: "Chlorine gas bubbled into potassium bromide makes the solution turn orange, but iodine added to potassium bromide does nothing. Why?",
+    options: [
+      "Iodine is too heavy to dissolve.",
+      "Halogens have their own activity series: Cl₂ is more reactive than Br₂, but I₂ is less reactive than Br₂.",
+      "Potassium blocks iodine from reacting.",
+      "Only gases can take part in single replacement.",
+    ],
+    answer: 1,
+    explanation:
+      "For nonmetals, reactivity goes down Group 17 (F > Cl > Br > I). A halogen can replace only the halide ions below it.",
+  },
+];
