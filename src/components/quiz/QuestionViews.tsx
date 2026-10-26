@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, type DragEndEvent } from "@dnd-kit/core";
 import { SortableContext, arrayMove, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -82,6 +82,7 @@ export function OrderView({ q, locked, onGrade }: Props<OrderQuestion>) {
     while (s.join() === q.items.join()) s = shuffle(q.items);
     setItems(s);
   }, [q]);
+  const dndId = useId();
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
     useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 6 } }),
@@ -95,7 +96,7 @@ export function OrderView({ q, locked, onGrade }: Props<OrderQuestion>) {
   return (
     <div className="max-w-sm">
       <p className="hand mb-1 text-xl text-accent">{q.topLabel} ↑</p>
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onEnd}>
+      <DndContext id={dndId} sensors={sensors} collisionDetection={closestCenter} onDragEnd={onEnd}>
         <SortableContext items={items} strategy={verticalListSortingStrategy}>
           <ol className="space-y-2">
             {items.map((id, i) => (
