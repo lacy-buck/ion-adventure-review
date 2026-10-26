@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, type DragEndEvent } from "@dnd-kit/core";
 import { SortableContext, arrayMove, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -75,12 +75,13 @@ function SortItem({ id, index, locked }: { id: string; index: number; locked: bo
 }
 
 export function OrderView({ q, locked, onGrade }: Props<OrderQuestion>) {
-  const initial = useMemo(() => {
+  // Fixed scramble on the server, random shuffle after load (avoids hydration mismatch).
+  const [items, setItems] = useState(() => [...q.items].sort());
+  useEffect(() => {
     let s = shuffle(q.items);
     while (s.join() === q.items.join()) s = shuffle(q.items);
-    return s;
+    setItems(s);
   }, [q]);
-  const [items, setItems] = useState(initial);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
     useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 6 } }),
