@@ -107,7 +107,7 @@ export const activityQuestions: Question[] = [
     hint: "X forms 3+ ions and W forms 2+ ions. Nitrate is NO3⁻.",
     answer: "2X(s) + 3W(NO3)2(aq) -> 2X(NO3)3(aq) + 3W(s)",
     explanation:
-      "X⁺³ needs three NO3⁻, giving X(NO3)3. Balancing nitrate takes 3 W(NO3)2 → 2 X(NO3)3 (6 nitrates on each side). The equation is 2X(s) + 3W(NO3)2(aq) → 2X(NO3)3(aq) + 3W(s).",
+      "X³⁺ needs three NO3⁻, giving X(NO3)3. Balancing nitrate takes 3 W(NO3)2 → 2 X(NO3)3 (6 nitrates on each side). The equation is 2X(s) + 3W(NO3)2(aq) → 2X(NO3)3(aq) + 3W(s).",
   },
   {
     id: "act-7",

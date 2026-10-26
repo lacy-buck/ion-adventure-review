@@ -1,1 +1,1 @@
-- [ ] Activity series mystery-ion question uses a 1+ ion metal
+- [x] Activity series mystery-ion question uses a 1+ ion metal
