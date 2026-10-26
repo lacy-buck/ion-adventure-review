@@ -2,8 +2,8 @@ import type { Question, TableContext } from "./types";
 
 const mystery: TableContext = {
   caption:
-    "Three tubes (1, 2, 3) hold Pb(NO3)2, Ba(NO3)2 and Zn(NO3)2, but you don't know which is which. All three are clear and colorless. A few drops of each test solution were added.",
-  headers: ["", "KBr(aq)", "K2SO4(aq)", "NaOH(aq)"],
+    "Three tubes (1, 2, 3) hold `Pb(NO3)2`, `Ba(NO3)2` and `Zn(NO3)2`, but you don't know which is which. All three are clear and colorless. A few drops of each test solution were added.",
+  headers: ["", "`KBr(aq)`", "`K2SO4(aq)`", "`NaOH(aq)`"],
   rows: [
     ["Tube 1", "stays clear", "white solid forms", "stays clear"],
     ["Tube 2", "white solid forms", "white solid forms", "white solid forms"],
