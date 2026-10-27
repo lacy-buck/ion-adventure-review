@@ -2,7 +2,7 @@ export type State = "s" | "l" | "g" | "aq";
 export interface Species {
   coef: number;
   formula: string;
-  state?: State;
+  state?: State | undefined;
 }
 export interface Equation {
   left: Species[];
