@@ -141,7 +141,7 @@ export function MatchView({ q, locked, onGrade }: Props<MatchQuestion>) {
             </select>
             {wrong && (
               <span className="text-sm text-destructive">
-                should be <RichText text={q.options[q.answer[i]]} />
+                should be <RichText text={q.options[q.answer[i]!]!} />
               </span>
             )}
           </div>
@@ -211,7 +211,7 @@ export function DiagramView({ q, locked, onGrade }: Props<DiagramQuestion>) {
     setBoxes((b) => b.map((list, i) => (i !== active ? list : list.includes(p) ? list.filter((x) => x !== p) : [...list, p])));
   const grade = () =>
     onGrade({
-      correct: q.boxes.every((bx, i) => bx.expected.length === boxes[i].length && bx.expected.every((e) => boxes[i].includes(e))),
+      correct: q.boxes.every((bx, i) => bx.expected.length === boxes[i]!.length && bx.expected.every((e) => boxes[i]!.includes(e))),
     });
   return (
     <div className="space-y-4">
@@ -222,7 +222,7 @@ export function DiagramView({ q, locked, onGrade }: Props<DiagramQuestion>) {
             disabled={locked}
             onClick={() => toggle(p)}
             className={`rounded-full border px-3 py-1.5 font-mono text-sm transition-colors ${
-              boxes[active].includes(p) ? "border-primary bg-primary text-primary-foreground" : "border-primary/40 bg-card text-primary hover:bg-secondary"
+              boxes[active]!.includes(p) ? "border-primary bg-primary text-primary-foreground" : "border-primary/40 bg-card text-primary hover:bg-secondary"
             }`}
           >
             {p}
@@ -231,7 +231,7 @@ export function DiagramView({ q, locked, onGrade }: Props<DiagramQuestion>) {
       </div>
       <div className={`grid gap-4 ${q.boxes.length > 1 ? "sm:grid-cols-2" : ""}`}>
         {q.boxes.map((bx, i) => {
-          const ok = locked && bx.expected.length === boxes[i].length && bx.expected.every((e) => boxes[i].includes(e));
+          const ok = locked && bx.expected.length === boxes[i]!.length && bx.expected.every((e) => boxes[i]!.includes(e));
           return (
             <div
               key={bx.label}
@@ -244,7 +244,7 @@ export function DiagramView({ q, locked, onGrade }: Props<DiagramQuestion>) {
                 {bx.label} {!locked && active === i && <span className="text-base text-accent">← adding here</span>}
               </p>
               <div className="flex flex-wrap gap-2">
-                {boxes[i].map((p) => (
+                {boxes[i]!.map((p) => (
                   <span key={p} className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 font-mono text-sm">
                     {p}
                     {!locked && (

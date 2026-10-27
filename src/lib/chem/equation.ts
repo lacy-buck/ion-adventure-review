@@ -15,7 +15,7 @@ const SUB: Record<string, string> = {
 };
 
 function normalize(s: string) {
-  return s.replace(/[₀-₉]/g, (c) => SUB[c]).replace(/→|⟶|=>|=/g, "->").replace(/\s+/g, " ").trim();
+  return s.replace(/[₀-₉]/g, (c) => SUB[c] ?? c).replace(/→|⟶|=>|=/g, "->").replace(/\s+/g, " ").trim();
 }
 
 export function countAtoms(formula: string): Record<string, number> | null {
@@ -23,11 +23,11 @@ export function countAtoms(formula: string): Record<string, number> | null {
   let i = 0;
   const readNum = () => {
     let n = "";
-    while (i < formula.length && /\d/.test(formula[i])) n += formula[i++];
+    while (i < formula.length && /\d/.test(formula[i]!)) n += formula[i++];
     return n ? parseInt(n, 10) : 1;
   };
   while (i < formula.length) {
-    const c = formula[i];
+    const c = formula[i]!;
     if (c === "(") {
       stack.push({});
       i++;
@@ -36,24 +36,24 @@ export function countAtoms(formula: string): Record<string, number> | null {
       const n = readNum();
       const top = stack.pop();
       if (!top || stack.length === 0) return null;
-      const into = stack[stack.length - 1];
+      const into = stack[stack.length - 1]!;
       for (const [k, v] of Object.entries(top)) into[k] = (into[k] ?? 0) + v * n;
     } else if (/[A-Z]/.test(c)) {
       let sym = c;
       i++;
-      while (i < formula.length && /[a-z]/.test(formula[i])) sym += formula[i++];
+      while (i < formula.length && /[a-z]/.test(formula[i]!)) sym += formula[i++];
       const n = readNum();
-      const top = stack[stack.length - 1];
+      const top = stack[stack.length - 1]!;
       top[sym] = (top[sym] ?? 0) + n;
     } else return null;
   }
-  return stack.length === 1 ? stack[0] : null;
+  return stack.length === 1 ? stack[0]! : null;
 }
 
 function parseSpecies(raw: string): Species | null {
   const m = raw.trim().match(/^(\d*)\s*(.+?)\s*(?:\((s|l|g|aq)\))?$/i);
   if (!m) return null;
-  const formula = m[2].replace(/\s/g, "");
+  const formula = m[2]!.replace(/\s/g, "");
   if (!countAtoms(formula)) return null;
   return {
     coef: m[1] ? parseInt(m[1], 10) : 1,
@@ -65,6 +65,7 @@ function parseSpecies(raw: string): Species | null {
 export function parseEquation(input: string): Equation | null {
   const parts = normalize(input).split("->");
   if (parts.length !== 2) return null;
+  const [lhs, rhs] = parts as [string, string];
   const side = (s: string) => {
     if (!s.trim()) return null;
     const out: Species[] = [];
@@ -75,8 +76,8 @@ export function parseEquation(input: string): Equation | null {
     }
     return out;
   };
-  const left = side(parts[0]);
-  const right = side(parts[1]);
+  const left = side(lhs);
+  const right = side(rhs);
   if (!left || !right) return null;
   return { left, right };
 }

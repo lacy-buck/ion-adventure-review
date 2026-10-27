@@ -7,11 +7,11 @@ export function Formula({ f }: { f: string }) {
   let i = 0;
   let k = 0;
   while (i < s.length) {
-    const c = s[i];
+    const c = s[i]!;
     const prev = s[i - 1];
     if (/\d/.test(c) && prev && /[A-Za-z)\]]/.test(prev) && !/\((aq|s|l|g)$/.test(s.slice(0, i))) {
       let n = "";
-      while (i < s.length && /\d/.test(s[i])) n += s[i++];
+      while (i < s.length && /\d/.test(s[i]!)) n += s[i++];
       out.push(<sub key={k++}>{n}</sub>);
     } else {
       out.push(<Fragment key={k++}>{c}</Fragment>);
