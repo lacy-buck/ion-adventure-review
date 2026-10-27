@@ -19,8 +19,8 @@ export const propertyQuestions: Question[] = [
     prompt: "The labels came off! Match each sample to its substance.",
     context: samples,
     left: ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
-    options: ["Paraffin wax (`C25H52`)", "Potassium bromide (`KBr`)", "Iron (`Fe`)", "Sucrose (`C12H22O11`)"],
-    answer: [0, 1, 2, 3],
+    options: ["Iron (`Fe`)", "Sucrose (`C12H22O11`)", "Paraffin wax (`C25H52`)", "Potassium bromide (`KBr`)"],
+    answer: [2, 3, 0, 1],
     explanation:
       "Iron is the only one that conducts as a solid (metallic). KBr is ionic: it dissolves and has a high melting point. Sucrose is a polar covalent molecule: it dissolves but melts at a low temperature. Wax is a nonpolar covalent molecule: it doesn't dissolve and melts at a very low temperature.",
   },
