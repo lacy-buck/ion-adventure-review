@@ -15,7 +15,7 @@ export function QuizRunner({ title, questions, onRestart }: { title: string; que
   const [score, setScore] = useState(0);
   const [run, setRun] = useState(0);
   const done = idx >= questions.length;
-  const q = questions[idx];
+  const q = questions[Math.min(idx, questions.length - 1)]!;
 
   const grade = (g: Graded) => {
     setGraded(g);
