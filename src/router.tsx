@@ -5,8 +5,12 @@ import { routeTree } from "./routeTree.gen";
 export const getRouter = () => {
   const queryClient = new QueryClient();
 
+  // Under GitHub Pages the app lives at /<repo-name>; basepath follows Vite's base.
+  const base = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
   const router = createRouter({
     routeTree,
+    basepath: base || "/",
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
