@@ -28,13 +28,16 @@ export default defineConfig({
           router: { basepath: pagesBase },
           client: { base: pagesBase },
           pages: pagesRoutes.map((path) => ({ path })),
+          prerender: { enabled: true },
         }
       : {}),
   },
   ...(isPages
     ? {
         vite: { base: pagesBase },
-        nitro: { preset: "static" },
+        // Static hosting (GitHub Pages): skip the Cloudflare server build and
+        // let TanStack Start's prerenderer write plain HTML files.
+        nitro: false,
       }
     : {}),
 });
