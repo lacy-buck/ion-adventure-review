@@ -12,3 +12,4 @@
 ## Project rules
 - Questions live as typed data in src/lib/questions/*; there's no backend, so it stays a simple no-login study app.
 - Typed equations are graded by src/lib/chem/equation.ts (parse + balance + states); keep its tests green when you change answers.
+- GitHub Pages uses the PAGES_BUILD static prerender mode and uploads dist/client; keep fallback files and artifact paths aligned with TanStack Start's client output.

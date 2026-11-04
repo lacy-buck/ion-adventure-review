@@ -37,9 +37,8 @@ jobs:
 
       - name: Add SPA fallback and disable Jekyll
         run: |
-          cd .output/public
-          cp index.html 404.html
-          touch .nojekyll
+          cp dist/client/index.html dist/client/404.html
+          touch dist/client/.nojekyll
 
       - uses: actions/configure-pages@v5
         with:
@@ -47,7 +46,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist/client
 
   deploy:
     needs: build

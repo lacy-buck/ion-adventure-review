@@ -1,1 +1,2 @@
 - [x] Activity series mystery-ion question uses a 1+ ion metal
+- [ ] Verify actual Pages build output and use it consistently for fallback, Jekyll marker, and artifact upload.
